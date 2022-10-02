@@ -9,29 +9,29 @@
 # lubridate for date functions
 # ggplot for visualization
 # # # # # # # # # # # # # # # # # # # # # # #  
-
 library(tidyverse)  #helps wrangle data
 library(lubridate)  #helps wrangle date attributes
 library(ggplot2)  #helps visualize data
+library(geosphere) #helps manage distance, direction, area, etc for geographic coordinates
 getwd() #displays your working directory
-setwd("~/Documents/CyclisticDatasets/Cyclistic") #sets your working directory to simplify calls to data
+setwd("~/Projects/cyclistic-case-study") #sets your working directory to simplify calls to data
 
 #=====================
 # STEP 1: COLLECT DATA
 #=====================
 # Upload datasets (csv files) here
-cyclistic_df1 <- read_csv("cyclistic-tripdata-202109.csv")
-cyclistic_df2 <- read_csv("cyclistic-tripdata-202110.csv")
-cyclistic_df3 <- read_csv("cyclistic-tripdata-202111.csv")
-cyclistic_df4 <- read_csv("cyclistic-tripdata-202112.csv")
-cyclistic_df5 <- read_csv("cyclistic-tripdata-202201.csv")
-cyclistic_df6 <- read_csv("cyclistic-tripdata-202202.csv")
-cyclistic_df7 <- read_csv("cyclistic-tripdata-202203.csv")
-cyclistic_df8 <- read_csv("cyclistic-tripdata-202204.csv")
-cyclistic_df9 <- read_csv("cyclistic-tripdata-202205.csv")
-cyclistic_df10 <- read_csv("cyclistic-tripdata-202206.csv")
-cyclistic_df11 <- read_csv("cyclistic-tripdata-202207.csv")
-cyclistic_df12 <- read_csv("cyclistic-tripdata-202208.csv")
+cyclistic_df1 <- read_csv("202109-divvy-tripdata.csv")
+cyclistic_df2 <- read_csv("202110-divvy-tripdata.csv")
+cyclistic_df3 <- read_csv("202111-divvy-tripdata.csv")
+cyclistic_df4 <- read_csv("202112-divvy-tripdata.csv")
+cyclistic_df5 <- read_csv("202201-divvy-tripdata.csv")
+cyclistic_df6 <- read_csv("202202-divvy-tripdata.csv")
+cyclistic_df7 <- read_csv("202203-divvy-tripdata.csv")
+cyclistic_df8 <- read_csv("202204-divvy-tripdata.csv")
+cyclistic_df9 <- read_csv("202205-divvy-tripdata.csv")
+cyclistic_df10 <- read_csv("202206-divvy-tripdata.csv")
+cyclistic_df11 <- read_csv("202207-divvy-tripdata.csv")
+cyclistic_df12 <- read_csv("202208-divvy-tripdata.csv")
 
 #====================================================
 # STEP 2: WRANGLE DATA AND COMBINE INTO A SINGLE FILE
@@ -216,5 +216,5 @@ cyclistic_df_v2 %>%
 #=================================================
 # Create a csv file that we will visualize in Excel, Tableau, or my presentation software
 counts <- aggregate(cyclistic_df_v2$ride_length ~ cyclistic_df_v2$member_casual + cyclistic_df_v2$day_of_week, FUN = mean)
-write.csv(counts, file = '~/Documents/CyclisticDatasets/Cyclistic/avg_ride_length.csv')
+write.csv(counts, file = '~/Projects/cyclistic-case-study/avg_ride_length.csv')
 
